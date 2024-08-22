@@ -1,6 +1,7 @@
 package com.example.demo.domain.workout;
 
 import com.example.demo.domain.exercise.ExerciseModel;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +29,8 @@ public class WorkoutModel {
 
     private String workoutType;
 
-    @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<ExerciseModel> exerciseModels;
 }
 
