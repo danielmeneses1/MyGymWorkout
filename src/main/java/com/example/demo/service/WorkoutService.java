@@ -31,4 +31,8 @@ public class WorkoutService {
         workoutRepository.deleteById(workoutId);
     }
 
+    //delete all workouts
+    public void deleteAllWorkouts() {
+        workoutRepository.deleteAll();
+    }
 }

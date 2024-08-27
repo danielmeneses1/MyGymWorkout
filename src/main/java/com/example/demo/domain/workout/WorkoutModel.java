@@ -25,8 +25,6 @@ public class WorkoutModel {
 
     private String name;
 
-    private Date date;
-
     private String workoutType;
 
     @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL, orphanRemoval = true)

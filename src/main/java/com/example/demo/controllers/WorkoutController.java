@@ -27,4 +27,9 @@ public class WorkoutController {
     public WorkoutModel saveWorkout(@RequestBody WorkoutModel workoutModel) {
         return workoutRepository.save(workoutModel);
     }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAllWorkouts() {
+        workoutRepository.deleteAll();
+    }
 }
