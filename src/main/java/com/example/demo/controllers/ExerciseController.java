@@ -28,4 +28,14 @@ public class ExerciseController {
         List<ExerciseModel> exercises = exerciseService.getExercisesByWorkout(workoutId);
         return ResponseEntity.ok(exercises);
     }
+
+    @PutMapping("/update/{exerciseId}/{lastWeight}")
+    public ResponseEntity<List<ExerciseModel>> updateLastWeight(@PathVariable Long exerciseId, @PathVariable int lastWeight) {
+        exerciseService.updateLastWeight(exerciseId, lastWeight);
+        return ResponseEntity.ok().build();
+    }
+
+
+
+
 }

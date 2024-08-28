@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -30,5 +33,8 @@ public class ExerciseModel {
     private String Series;
     private int MaxWeight;
     private int LastWeight;
+
+    @ElementCollection
+    private List<Integer> weights= new ArrayList<>();
 
 }

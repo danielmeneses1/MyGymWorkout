@@ -55,5 +55,20 @@ public class ExerciseService {
         }
         throw new RuntimeException("Treino não encontrado!");
     }
+    //atualiza o ultimo peso pegado em cada exercício e verifica se é maior que o peso maximo
+    public void updateLastWeight(Long exerciseId, int lastWeight) {
+        Optional<ExerciseModel> exerciseOptional = exerciseRepository.findById(exerciseId);
+        if (exerciseOptional.isPresent()) {
+            ExerciseModel exercise = exerciseOptional.get();
+            exercise.setLastWeight(lastWeight);
+            exercise.getWeights().add(lastWeight);
+            if (exercise.getMaxWeight() < lastWeight) {
+                exercise.setMaxWeight(lastWeight);
+            }
+            exerciseRepository.save(exercise);
+        }
+    }
+
+
 
 }
